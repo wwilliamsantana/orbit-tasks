@@ -1,4 +1,4 @@
-import { Calendar, Globe, Palette, Code2 } from "lucide-react";
+// import { Calendar, Globe, Palette, Code2 } from "lucide-react";
 
 export const tasks = [
   {
@@ -12,7 +12,6 @@ export const tasks = [
       "https://github.com/vercel.png",
     ],
     tags: ["Design", "UI"],
-    icon: Palette,
     column: "Todo",
   },
 
@@ -24,7 +23,6 @@ export const tasks = [
     dueDate: "Aug 02",
     members: ["https://github.com/vercel.png"],
     tags: ["Backend"],
-    icon: Globe,
     column: "In Progress",
   },
 
@@ -36,7 +34,6 @@ export const tasks = [
     dueDate: "Aug 05",
     members: ["https://github.com/wwilliamsantana.png"],
     tags: ["Feature"],
-    icon: Calendar,
     column: "Review",
   },
 
@@ -51,7 +48,6 @@ export const tasks = [
       "https://github.com/wwilliamsantana.png",
     ],
     tags: ["Frontend"],
-    icon: Code2,
     column: "Done",
   },
 ];
