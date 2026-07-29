@@ -13,14 +13,7 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return (
-      <button
-        aria-label="Toggle theme"
-        className="rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-900"
-      >
-        <div className="h-5 w-5" />
-      </button>
-    );
+    return null;
   }
   return (
     <button
@@ -28,7 +21,9 @@ export function ThemeToggle() {
       aria-label="Toggle theme"
       className="rounded-xl p-3 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:hover:bg-slate-800 transition-colors dark:text-white hover:bg-slate-100"
     >
-      <div>{theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}</div>
+      <div className="transition-all duration-300 ease-in-out hover:rotate-12">
+        {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+      </div>
     </button>
   );
 }
