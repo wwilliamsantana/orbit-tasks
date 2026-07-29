@@ -1,5 +1,4 @@
 import { SlidersHorizontal } from "lucide-react";
-import { BoardStats } from "./BoardStats";
 
 export function BoardFilters() {
   return (

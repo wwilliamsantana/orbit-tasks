@@ -1,6 +1,6 @@
-// import { Calendar, Globe, Palette, Code2 } from "lucide-react";
+import { Task } from "@/types/task";
 
-export const tasks = [
+export const tasks: Task[] = [
   {
     id: 1,
     title: "Landing Page Design",
