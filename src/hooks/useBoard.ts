@@ -1,13 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { tasks as initialTasks } from "@/data/tasks";
+
+import { initialBoard } from "@/data/board";
+import { Column, Task } from "@/types/task";
 
 export function useBoard() {
-  const [tasks, setTasks] = useState(initialTasks);
+  const [board, setBoard] = useState<Column[]>(initialBoard);
+
+  const [activeTask, setActiveTask] = useState<Task | null>(null);
 
   return {
-    tasks,
-    setTasks,
+    board,
+    setBoard,
+    activeTask,
+    setActiveTask,
   };
 }

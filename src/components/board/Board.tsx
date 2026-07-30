@@ -1,22 +1,23 @@
-import { Task } from "@/types/task";
-import { BoardColumn } from "./BoardColumn";
-
-const columns = ["Todo", "In Progress", "Review", "Done"];
+import { Column } from "@/types/task";
+import { SortableContext } from "@dnd-kit/sortable";
+import { horizontalListSortingStrategy } from "@dnd-kit/sortable";
+import { SortableColumn } from "./SortableColumn";
 
 interface Props {
-  tasks: Task[];
+  board: Column[];
 }
 
-export function Board({ tasks }: Props) {
+export function Board({ board }: Props) {
   return (
-    <section className="grid gap-6 lg:grid-cols-4">
-      {columns.map((column) => (
-        <BoardColumn
-          key={column}
-          title={column}
-          tasks={tasks.filter((task) => task.column === column)}
-        />
-      ))}
-    </section>
+    <SortableContext
+      items={board.map((column) => column.id)}
+      strategy={horizontalListSortingStrategy}
+    >
+      <section className="grid gap-6 lg:grid-cols-4">
+        {board.map((column) => (
+          <SortableColumn key={column.id} column={column} />
+        ))}
+      </section>
+    </SortableContext>
   );
 }

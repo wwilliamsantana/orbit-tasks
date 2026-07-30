@@ -1,27 +1,37 @@
 "use client";
 
-import { DroppableColumn } from "../task/DroppableColumn";
-import { SortableTask } from "../task/SortableTask";
-import { TaskCard } from "../task/TaskCard";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+
+import { Column } from "@/types/task";
+
 import { ColumnHeader } from "./ColumnHeader";
-import { Task } from "@/types/task";
+
+import { SortableTask } from "../task/SortableTask";
+import { DroppableColumn } from "./DroppableColumn";
 
 interface Props {
-  title: string;
-  tasks: Task[];
+  column: Column;
 }
 
-export function BoardColumn({ title, tasks }: Props) {
+export function BoardColumn({ column }: Props) {
   return (
-    <DroppableColumn id="title">
+    <DroppableColumn id={column.id}>
       <article className="rounded-3xl bg-slate-100 p-4 dark:bg-slate-900">
-        <ColumnHeader title={title} total={tasks.length} />
+        <ColumnHeader title={column.title} total={column.tasks.length} />
 
-        <div className="space-y-4">
-          {tasks.map((task) => (
-            <SortableTask key={task.id} task={task} />
-          ))}
-        </div>
+        <SortableContext
+          items={column.tasks.map((task) => task.id)}
+          strategy={verticalListSortingStrategy}
+        >
+          <div className="space-y-4">
+            {column.tasks.map((task) => (
+              <SortableTask key={task.id} task={task} columnId={column.id} />
+            ))}
+          </div>
+        </SortableContext>
       </article>
     </DroppableColumn>
   );

@@ -1,12 +1,17 @@
-export type Column = "Todo" | "In Progress" | "Review" | "Done";
+export type ColumnId = "Todo" | "In Progress" | "Review" | "Done";
 
 export interface Task {
-  id: number;
+  id: string;
   title: string;
   description: string;
-  priority: string;
+  priority: "High" | "Medium" | "Low";
   dueDate: string;
   members: string[];
   tags: string[];
-  column: Column;
+}
+
+export interface Column {
+  id: ColumnId;
+  title: string;
+  tasks: Task[];
 }
