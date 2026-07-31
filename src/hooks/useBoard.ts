@@ -1,12 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { initialBoard } from "@/data/board";
 import { Column, Task } from "@/types/task";
+const STORAGE_KEY = "orbit-board";
 
 export function useBoard() {
-  const [board, setBoard] = useState<Column[]>(initialBoard);
+  const [board, setBoard] = useState<Column[]>(() => {
+    if (typeof window === "undefined") {
+      return initialBoard;
+    }
+    const stored = localStorage.getItem(STORAGE_KEY);
+
+    if (!stored) {
+      return initialBoard;
+    }
+
+    try {
+      return JSON.parse(stored);
+    } catch {
+      return initialBoard;
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(board));
+  }, [board]);
 
   const [activeTask, setActiveTask] = useState<Task | null>(null);
 

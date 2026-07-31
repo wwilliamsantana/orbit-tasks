@@ -4,74 +4,21 @@ export const initialBoard: Column[] = [
   {
     id: "Todo",
     title: "Todo",
-    tasks: [
-      {
-        id: "1",
-        title: "Landing Page",
-        description: "Create Hero section.",
-        priority: "High",
-        dueDate: "2026-07-30",
-        tags: ["Design"],
-        members: ["https://github.com/wwilliamsantana.png"],
-      },
-
-      {
-        id: "2",
-        title: "Dark Mode",
-        description: "Implement next-themes.",
-        priority: "Medium",
-        dueDate: "2026-08-02",
-        tags: ["Frontend"],
-        members: ["https://github.com/vercel.png"],
-      },
-    ],
+    tasks: [],
   },
-
   {
     id: "In Progress",
     title: "In Progress",
-    tasks: [
-      {
-        id: "3",
-        title: "API Integration",
-        description: "Connect REST API.",
-        priority: "High",
-        dueDate: "2026-08-04",
-        tags: ["Backend"],
-        members: ["https://github.com/vercel.png"],
-      },
-    ],
+    tasks: [],
   },
-
   {
     id: "Review",
     title: "Review",
-    tasks: [
-      {
-        id: "4",
-        title: "Refactor Components",
-        description: "Improve architecture.",
-        priority: "Low",
-        dueDate: "2026-08-10",
-        tags: ["React"],
-        members: ["https://github.com/wwilliamsantana.png"],
-      },
-    ],
+    tasks: [],
   },
-
   {
     id: "Done",
     title: "Done",
-    tasks: [
-      {
-        id: "5",
-        title: "Setup Project",
-        description: "Initial structure.",
-        priority: "Low",
-        dueDate: "2026-07-07",
-        tags: ["Setup"],
-        members: ["https://github.com/vercel.png"],
-      },
-    ],
+    tasks: [],
   },
 ];
