@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import { TaskPriority } from "./TaskPriority";
 import { TaskTags } from "./TaskTags";
+import { formatDate } from "@/utils/formatDate";
 
 interface Props {
   title: string;
@@ -33,7 +34,7 @@ export function TaskCard({
       <footer className="mt-5 flex items-center justify-between">
         <div className="flex items-center gap-1 text-sm text-slate-500">
           <CalendarDays size={16} />
-          {dueDate}
+          {formatDate(dueDate)}
         </div>
 
         <div className="flex -space-x-2">
