@@ -14,13 +14,14 @@ import { DroppableColumn } from "./DroppableColumn";
 
 interface Props {
   column: Column;
+  onAddTask: (columnId: string) => void;
 }
 
-export function BoardColumn({ column }: Props) {
+export function BoardColumn({ column, onAddTask }: Props) {
   return (
     <DroppableColumn id={column.id}>
       <article className="rounded-3xl bg-slate-100 p-4 dark:bg-slate-900">
-        <ColumnHeader title={column.title} total={column.tasks.length} />
+        <ColumnHeader onAddTask={() => onAddTask(column.id)} title={column.title} total={column.tasks.length} />
 
         <SortableContext
           items={column.tasks.map((task) => task.id)}

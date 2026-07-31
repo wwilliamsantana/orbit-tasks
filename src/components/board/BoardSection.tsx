@@ -22,9 +22,32 @@ import { FloatingActionButton } from "./FloatingActionButton";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { Column, Task } from "@/types/task";
 import { TaskCard } from "../task/TaskCard";
+import { useState } from "react";
+import { TaskDialog } from "../task/TaskDialog";
 
 export function BoardSection() {
-  const { board, setBoard, activeTask, setActiveTask } = useBoard();
+  const { board, setBoard, activeTask, setActiveTask, addTask } = useBoard();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedColumn, setSelectedColumn] = useState("");
+
+  function handleOpenDialog(columnId: string) {
+    setSelectedColumn(columnId);
+    setDialogOpen(true);
+  }
+
+  function handleCloseDialog() {
+    setDialogOpen(false);
+  }
+
+  function handleCreateTask(task: Omit<Task, "id">) {
+    addTask(selectedColumn, {
+      ...task,
+      id: crypto.randomUUID(),
+    });
+
+    handleCloseDialog();
+  }
+
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: {
@@ -157,11 +180,17 @@ export function BoardSection() {
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
-        <Board board={board} />
+        <Board board={board} onAddTask={handleOpenDialog} />
         <DragOverlay>
           {activeTask ? <TaskCard {...activeTask} /> : null}
         </DragOverlay>
       </DndContext>
+
+      <TaskDialog
+        open={dialogOpen}
+        onClose={handleCloseDialog}
+        onCreateTask={handleCreateTask}
+      />
 
       <FloatingActionButton />
     </section>

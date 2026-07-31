@@ -8,13 +8,12 @@ import { BoardColumn } from "../board/BoardColumn";
 
 interface Props {
   column: Column;
+  onAddTask: (columnId: string) => void;
 }
 
-export function SortableColumn({ column }: Props) {
+export function SortableColumn({ column, onAddTask }: Props) {
   const {
     setNodeRef,
-    attributes,
-    listeners,
     transform,
     transition,
     isDragging,
@@ -38,7 +37,7 @@ export function SortableColumn({ column }: Props) {
       style={style}
       className={isDragging ? "opacity-60" : ""}
     >
-      <BoardColumn column={column} />
+      <BoardColumn column={column} onAddTask={onAddTask} />
     </div>
   );
 }

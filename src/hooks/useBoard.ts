@@ -10,10 +10,24 @@ export function useBoard() {
 
   const [activeTask, setActiveTask] = useState<Task | null>(null);
 
+  function addTask(columnId: string, task: Task) {
+    setBoard((columns) =>
+      columns.map((column) =>
+        column.id === columnId
+          ? {
+            ...column,
+            tasks: [...column.tasks, task],
+          }
+          : column
+      )
+    );
+  }
+
   return {
     board,
     setBoard,
     activeTask,
     setActiveTask,
+    addTask
   };
 }

@@ -3,9 +3,10 @@ import { Plus } from "lucide-react";
 interface Props {
   title: string;
   total: number;
+  onAddTask: () => void
 }
 
-export function ColumnHeader({ title, total }: Props) {
+export function ColumnHeader({ title, total, onAddTask }: Props) {
   return (
     <header className="mb-5 flex items-center justify-between">
       <div className="flex items-center gap-3">
@@ -15,7 +16,7 @@ export function ColumnHeader({ title, total }: Props) {
           {total}
         </span>
       </div>
-      <button className="rounded-lg p-2 transition hover:bg-slate-200 dark:hover:bg-slate-800">
+      <button onClick={onAddTask} className="rounded-lg p-2 transition hover:bg-slate-200 dark:hover:bg-slate-800">
         <Plus size={18} />
       </button>
     </header>
