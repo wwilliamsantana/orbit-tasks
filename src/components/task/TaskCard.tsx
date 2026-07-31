@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, Trash2 } from "lucide-react";
 import Image from "next/image";
 
 import { TaskPriority } from "./TaskPriority";
@@ -14,6 +14,7 @@ interface Props {
   dueDate: string;
   tags: string[];
   members: string[];
+  onDelete?: () => void;
 }
 
 export function TaskCard({
@@ -23,11 +24,22 @@ export function TaskCard({
   dueDate,
   tags,
   members,
+  onDelete,
 }: Props) {
-  console.log(dueDate);
   return (
     <article className="cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
-      <TaskPriority priority={priority} />
+      <div className="flex items-start justify-between">
+        <TaskPriority priority={priority} />
+
+        {/* {onDelete && ( */}
+        <button
+          onClick={onDelete}
+          className="rounded-lg p-1 text-slate-400 transition hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/20"
+        >
+          <Trash2 size={16} />
+        </button>
+        {/* )} */}
+      </div>
       <h3 className="mt-4 font-semibold">{title}</h3>
       <p className="mt-2 text-sm text-slate-500">{description}</p>
       <TaskTags tags={tags} />

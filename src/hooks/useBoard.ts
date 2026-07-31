@@ -15,11 +15,24 @@ export function useBoard() {
       columns.map((column) =>
         column.id === columnId
           ? {
-            ...column,
-            tasks: [...column.tasks, task],
-          }
-          : column
-      )
+              ...column,
+              tasks: [...column.tasks, task],
+            }
+          : column,
+      ),
+    );
+  }
+
+  function removeTask(columnId: string, taskId: string) {
+    setBoard((columns) =>
+      columns.map((column) =>
+        column.id === columnId
+          ? {
+              ...column,
+              tasks: column.tasks.filter((task) => task.id !== taskId),
+            }
+          : column,
+      ),
     );
   }
 
@@ -28,6 +41,7 @@ export function useBoard() {
     setBoard,
     activeTask,
     setActiveTask,
-    addTask
+    addTask,
+    removeTask,
   };
 }
