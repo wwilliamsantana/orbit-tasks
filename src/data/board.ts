@@ -68,7 +68,7 @@ export const initialBoard: Column[] = [
         title: "Setup Project",
         description: "Initial structure.",
         priority: "Low",
-        dueDate: "2026-07-12",
+        dueDate: "2026-07-07",
         tags: ["Setup"],
         members: ["https://github.com/vercel.png"],
       },
