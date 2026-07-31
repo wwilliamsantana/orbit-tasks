@@ -31,6 +31,19 @@ export function BoardSection() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedColumn, setSelectedColumn] = useState("");
 
+  const totalTasks = board.reduce(
+    (acc, column) => acc + column.tasks.length,
+    0,
+  );
+
+  const completedTasks =
+    board.find((column) => column.id === "Done")?.tasks.length ?? 0;
+
+  const remainingTasks = totalTasks - completedTasks;
+
+  const progressTasks =
+    totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
+
   function handleOpenDialog(columnId: string) {
     setSelectedColumn(columnId);
     setDialogOpen(true);
@@ -174,7 +187,12 @@ export function BoardSection() {
 
   return (
     <section className="p-8">
-      <BoardHeader />
+      <BoardHeader
+        completed={completedTasks}
+        progress={progressTasks}
+        remaining={remainingTasks}
+        total={totalTasks}
+      />
 
       <BoardFilters />
 

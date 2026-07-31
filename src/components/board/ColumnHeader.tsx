@@ -7,7 +7,6 @@ interface Props {
 }
 
 export function ColumnHeader({ title, total, onAddTask }: Props) {
-  console.log(total);
   return (
     <header className="mb-5 flex items-center justify-between">
       <div className="flex items-center gap-3">

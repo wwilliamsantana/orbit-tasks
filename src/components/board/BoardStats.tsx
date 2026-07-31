@@ -1,24 +1,29 @@
 import { CheckCircle2, Clock3, ListTodo } from "lucide-react";
 
-const stats = [
-  {
-    icon: ListTodo,
-    label: "Tasks",
-    value: "12",
-  },
-  {
-    icon: CheckCircle2,
-    label: "Completed",
-    value: "7",
-  },
-  {
-    icon: Clock3,
-    label: "Remaining",
-    value: "5",
-  },
-];
+interface Props {
+  total: number;
+  completed: number;
+  remaining: number;
+}
 
-export function BoardStats() {
+export function BoardStats({ completed, remaining, total }: Props) {
+  const stats = [
+    {
+      icon: ListTodo,
+      label: "Tasks",
+      value: total,
+    },
+    {
+      icon: CheckCircle2,
+      label: "Completed",
+      value: completed,
+    },
+    {
+      icon: Clock3,
+      label: "Remaining",
+      value: remaining,
+    },
+  ];
   return (
     <div className="grid gap-4 sm:grid-cols-3">
       {stats.map((stat) => (
