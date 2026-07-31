@@ -9,15 +9,11 @@ import { BoardColumn } from "../board/BoardColumn";
 interface Props {
   column: Column;
   onAddTask: (columnId: string) => void;
+  onDelete: (columnId: string, taskId: string) => void;
 }
 
-export function SortableColumn({ column, onAddTask }: Props) {
-  const {
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({
+export function SortableColumn({ column, onAddTask, onDelete }: Props) {
+  const { setNodeRef, transform, transition, isDragging } = useSortable({
     id: column.id,
 
     data: {
@@ -37,7 +33,7 @@ export function SortableColumn({ column, onAddTask }: Props) {
       style={style}
       className={isDragging ? "opacity-60" : ""}
     >
-      <BoardColumn column={column} onAddTask={onAddTask} />
+      <BoardColumn column={column} onAddTask={onAddTask} onDelete={onDelete} />
     </div>
   );
 }

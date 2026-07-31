@@ -9,9 +9,10 @@ import { TaskCard } from "./TaskCard";
 interface Props {
   task: Task;
   columnId: string;
+  onDelete: (columnId: string, taskId: string) => void;
 }
 
-export function SortableTask({ task, columnId }: Props) {
+export function SortableTask({ task, columnId, onDelete }: Props) {
   const {
     attributes,
     listeners,
@@ -40,7 +41,7 @@ export function SortableTask({ task, columnId }: Props) {
       }}
       className={`transition-shadow ${isDragging ? "opacity-30" : ""}`}
     >
-      <TaskCard {...task} />
+      <TaskCard {...task} onDelete={() => onDelete(columnId, task.id)} />
     </div>
   );
 }

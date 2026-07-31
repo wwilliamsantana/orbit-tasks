@@ -26,7 +26,8 @@ import { useState } from "react";
 import { TaskDialog } from "../task/TaskDialog";
 
 export function BoardSection() {
-  const { board, setBoard, activeTask, setActiveTask, addTask } = useBoard();
+  const { board, setBoard, activeTask, setActiveTask, addTask, removeTask } =
+    useBoard();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedColumn, setSelectedColumn] = useState("");
 
@@ -46,6 +47,10 @@ export function BoardSection() {
     });
 
     handleCloseDialog();
+  }
+
+  function handleDeleteTask(columnId: string, taskId: string) {
+    removeTask(columnId, taskId);
   }
 
   const sensors = useSensors(
@@ -180,7 +185,11 @@ export function BoardSection() {
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
-        <Board board={board} onAddTask={handleOpenDialog} />
+        <Board
+          board={board}
+          onAddTask={handleOpenDialog}
+          onDelete={handleDeleteTask}
+        />
         <DragOverlay>
           {activeTask ? <TaskCard {...activeTask} /> : null}
         </DragOverlay>
