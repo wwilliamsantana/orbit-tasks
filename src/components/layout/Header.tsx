@@ -1,5 +1,4 @@
 import { Logo } from "./Logo";
-import { SearchInput } from "./SearchInput";
 import { ThemeToggle } from "./ThemeToggle";
 import { UserMenu } from "./UserMenu";
 
@@ -9,7 +8,6 @@ export function Header() {
       <Logo />
 
       <div className="flex items-center gap-4">
-        <SearchInput />
         <ThemeToggle />
         <UserMenu />
       </div>

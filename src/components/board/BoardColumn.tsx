@@ -11,19 +11,19 @@ import { ColumnHeader } from "./ColumnHeader";
 
 import { SortableTask } from "../task/SortableTask";
 import { DroppableColumn } from "./DroppableColumn";
+import { useBoardContext } from "@/context/BoardContext";
 
 interface Props {
   column: Column;
-  onAddTask: (columnId: string) => void;
-  onDelete: (columnId: string, taskId: string) => void;
 }
 
-export function BoardColumn({ column, onAddTask, onDelete }: Props) {
+export function BoardColumn({ column }: Props) {
+  const { openDialog, removeTask } = useBoardContext();
   return (
     <DroppableColumn id={column.id}>
       <article className="rounded-3xl bg-slate-100 p-4 dark:bg-slate-900">
         <ColumnHeader
-          onAddTask={() => onAddTask(column.id)}
+          onAddTask={() => openDialog(column.id)}
           title={column.title}
           total={column.tasks.length}
         />
@@ -38,7 +38,7 @@ export function BoardColumn({ column, onAddTask, onDelete }: Props) {
                 key={task.id}
                 task={task}
                 columnId={column.id}
-                onDelete={onDelete}
+                onDelete={removeTask}
               />
             ))}
           </div>

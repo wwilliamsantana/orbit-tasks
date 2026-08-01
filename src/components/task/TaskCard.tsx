@@ -31,14 +31,12 @@ export function TaskCard({
       <div className="flex items-start justify-between">
         <TaskPriority priority={priority} />
 
-        {/* {onDelete && ( */}
         <button
           onClick={onDelete}
           className="rounded-lg p-1 text-slate-400 transition hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/20"
         >
           <Trash2 size={16} />
         </button>
-        {/* )} */}
       </div>
       <h3 className="mt-4 font-semibold">{title}</h3>
       <p className="mt-2 text-sm text-slate-500">{description}</p>

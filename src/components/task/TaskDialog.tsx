@@ -3,16 +3,18 @@
 import { X } from "lucide-react";
 import { TaskForm } from "./TaskForm";
 import { Task } from "@/types/task";
+import { useBoardContext } from "@/context/BoardContext";
 
-interface Props {
-  open: boolean;
-  onClose: () => void;
+export function TaskDialog() {
+  const { closeDialog, addTask, selectedColumn, dialogValueOpen } =
+    useBoardContext();
 
-  onCreateTask: (task: Omit<Task, "id">) => void;
-}
+  if (!dialogValueOpen) return null;
 
-export function TaskDialog({ open, onClose, onCreateTask }: Props) {
-  if (!open) return null;
+  function handleCreateTask(task: Omit<Task, "id">) {
+    addTask(selectedColumn, task);
+    closeDialog();
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
@@ -27,16 +29,14 @@ export function TaskDialog({ open, onClose, onCreateTask }: Props) {
           </div>
 
           <button
-            onClick={onClose}
+            onClick={closeDialog}
             className="rounded-lg p-2 transition hover:bg-slate-100 dark:hover:bg-slate-800"
           >
             <X size={18} />
           </button>
         </header>
 
-        <TaskForm onSubmit={onCreateTask} onClose={onClose} />
-
-
+        <TaskForm onSubmit={handleCreateTask} onClose={closeDialog} />
       </div>
     </div>
   );

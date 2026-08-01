@@ -2,14 +2,11 @@ import { Column } from "@/types/task";
 import { SortableContext } from "@dnd-kit/sortable";
 import { horizontalListSortingStrategy } from "@dnd-kit/sortable";
 import { SortableColumn } from "./SortableColumn";
+import { useBoardContext } from "@/context/BoardContext";
 
-interface Props {
-  board: Column[];
-  onAddTask: (columnId: string) => void;
-  onDelete: (columnId: string, taskId: string) => void;
-}
+export function Board() {
+  const { board } = useBoardContext();
 
-export function Board({ board, onAddTask, onDelete }: Props) {
   return (
     <SortableContext
       items={board.map((column) => column.id)}
@@ -17,12 +14,7 @@ export function Board({ board, onAddTask, onDelete }: Props) {
     >
       <section className="grid gap-6 lg:grid-cols-4">
         {board.map((column) => (
-          <SortableColumn
-            key={column.id}
-            column={column}
-            onAddTask={onAddTask}
-            onDelete={onDelete}
-          />
+          <SortableColumn key={column.id} column={column} />
         ))}
       </section>
     </SortableContext>

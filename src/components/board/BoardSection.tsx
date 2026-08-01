@@ -24,18 +24,15 @@ import { Column, Task } from "@/types/task";
 import { TaskCard } from "../task/TaskCard";
 import { useState } from "react";
 import { TaskDialog } from "../task/TaskDialog";
+import { useBoardContext } from "@/context/BoardContext";
 
 export function BoardSection() {
-  const { board, setBoard, activeTask, setActiveTask, addTask, removeTask } =
-    useBoard();
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedColumn, setSelectedColumn] = useState("");
+  const { activeTask, setActiveTask, board, setBoard } = useBoardContext();
 
   const totalTasks = board.reduce(
     (acc, column) => acc + column.tasks.length,
     0,
   );
-
   const completedTasks =
     board.find((column) => column.id === "Done")?.tasks.length ?? 0;
 
@@ -43,28 +40,6 @@ export function BoardSection() {
 
   const progressTasks =
     totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
-
-  function handleOpenDialog(columnId: string) {
-    setSelectedColumn(columnId);
-    setDialogOpen(true);
-  }
-
-  function handleCloseDialog() {
-    setDialogOpen(false);
-  }
-
-  function handleCreateTask(task: Omit<Task, "id">) {
-    addTask(selectedColumn, {
-      ...task,
-      id: crypto.randomUUID(),
-    });
-
-    handleCloseDialog();
-  }
-
-  function handleDeleteTask(columnId: string, taskId: string) {
-    removeTask(columnId, taskId);
-  }
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -78,6 +53,11 @@ export function BoardSection() {
     }),
   );
 
+  function findColumn(board: Column[], taskId: string) {
+    return board.find((column) =>
+      column.tasks.some((task) => task.id === taskId),
+    );
+  }
   function handleDragStart(event: DragStartEvent) {
     const { active } = event;
 
@@ -87,13 +67,6 @@ export function BoardSection() {
 
     setActiveTask(active.data.current.task as Task);
   }
-
-  function findColumn(board: Column[], taskId: string) {
-    return board.find((column) =>
-      column.tasks.some((task) => task.id === taskId),
-    );
-  }
-
   function handleDragOver(event: DragOverEvent) {
     const { active, over } = event;
 
@@ -154,7 +127,6 @@ export function BoardSection() {
       });
     });
   }
-
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
 
@@ -203,21 +175,13 @@ export function BoardSection() {
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
-        <Board
-          board={board}
-          onAddTask={handleOpenDialog}
-          onDelete={handleDeleteTask}
-        />
+        <Board />
         <DragOverlay>
           {activeTask ? <TaskCard {...activeTask} /> : null}
         </DragOverlay>
       </DndContext>
 
-      <TaskDialog
-        open={dialogOpen}
-        onClose={handleCloseDialog}
-        onCreateTask={handleCreateTask}
-      />
+      <TaskDialog />
 
       <FloatingActionButton />
     </section>
