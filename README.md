@@ -4,11 +4,9 @@ A modern and interactive **Kanban Task Manager** built with **Next.js 16**, **Re
 
 Orbit Tasks simulates a real-world project management application focused on productivity, reusable architecture, drag-and-drop interactions, persistent data, and modern UI/UX practices.
 
----
 
 ## Live Demo
 https://orbit-tasks-ten.vercel.app/
----
 
 # Features
 
@@ -61,7 +59,7 @@ https://orbit-tasks-ten.vercel.app/
 * Robots
 * Web Manifest
 
----
+
 
 #  Screenshots
 
@@ -69,29 +67,25 @@ https://orbit-tasks-ten.vercel.app/
 
 <img width="900"  src="https://github.com/user-attachments/assets/a51db890-8f90-4398-979d-ebd6089dd5c4" />
 
----
 
 ## Dark Mode
 
 <img width="900" src="https://github.com/user-attachments/assets/3d38651d-86f1-4ba2-9006-ec5540f1c394" />
 
 
----
 
 ## Drag & Drop
 
 <img width="900" src="https://github.com/user-attachments/assets/46c5ddc1-6257-4031-8972-2054f11f9fa9" />
 
----
 
 ## Create Task Dialog
 
 > Add dialog screenshot
 <img width="900"  src="https://github.com/user-attachments/assets/d6ab6ccf-5dfe-4762-8757-513e17ba7bdb" />
 
----
 
-# 🛠 Tech Stack
+# Tech Stack
 
 ### Front-end
 
@@ -106,7 +100,7 @@ https://orbit-tasks-ten.vercel.app/
 * next-themes
 * ESLint
 
----
+
 
 #  Getting started
 
@@ -140,7 +134,7 @@ Open
 http://localhost:3000
 ```
 
----
+
 
 #  Production Build
 
@@ -149,7 +143,7 @@ npm run build
 npm run start
 ```
 
----
+
 
 #  Dark Mode
 
@@ -162,7 +156,6 @@ Features include:
 * System independent theme
 * Smooth transitions
 
----
 
 #  SEO
 
@@ -175,7 +168,7 @@ The project includes modern SEO features provided by Next.js:
 * Robots
 * Web Manifest
 
----
+
 
 #  Project Goals
 
@@ -195,7 +188,6 @@ This project was built to practice modern Front-end development concepts:
 * Clean Code
 * Accessibility
 
----
 
 #  Author
 
@@ -209,7 +201,7 @@ LinkedIn
 
 https://linkedin.com/in/wwilliamsantana
 
----
+
 
 # License
 
