@@ -1,4 +1,4 @@
-# 🚀 Orbit Tasks
+#  Orbit Tasks
 
 A modern and interactive **Kanban Task Manager** built with **Next.js 16**, **React 19**, **TypeScript**, **Tailwind CSS 4**, and **Dnd Kit**.
 
@@ -99,34 +99,16 @@ https://orbit-tasks-ten.vercel.app/
 * React 19
 * TypeScript
 * Tailwind CSS 4
-
-### State Management
-
 * React Context API
-
-### Forms
-
 * React Hook Form
-
-### Drag & Drop
-
-* Dnd Kit
-
-### Icons
-
+* Dnd Kit (Drag & Drop)
 * Lucide React
-
-### Theme
-
 * next-themes
-
-### Lint
-
 * ESLint
 
 ---
 
-#  Get started
+#  Getting started
 
 Clone the repository
 
