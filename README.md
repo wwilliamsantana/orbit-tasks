@@ -1,216 +1,207 @@
-#  Orbit Tasks
+# Orbit Tasks
 
-A modern and interactive **Kanban Task Manager** built with **Next.js 16**, **React 19**, **TypeScript**, **Tailwind CSS 4**, and **Dnd Kit**.
+Um **gerenciador de tarefas Kanban** moderno e interativo, desenvolvido com **Next.js 16**, **React 19**, **TypeScript**, **Tailwind CSS 4** e **Dnd Kit**.
 
-Orbit Tasks simulates a real-world project management application focused on productivity, reusable architecture, drag-and-drop interactions, persistent data, and modern UI/UX practices.
+Orbit Tasks simula uma aplicação real de gerenciamento de projetos, com foco em produtividade, arquitetura reutilizável, interações de arrastar e soltar, persistência de dados e boas práticas modernas de UI/UX.
 
----
 
-## Live Demo
+
+## Demonstração online
+
 https://orbit-tasks-ten.vercel.app/
----
-
-# Features
-
-### Task Management
-
-* Create new tasks
-* Delete tasks
-* Multiple Kanban columns
-* Task priorities
-* Due dates
-* Tags
-* Team members
-
-### Drag & Drop
-
-* Drag tasks inside the same column
-* Drag tasks between columns
-* Smooth Drag Overlay
-* Keyboard accessibility
-* Powered by Dnd Kit
-
-### Dashboard
-
-* Dynamic task statistics
-* Completed tasks
-* Remaining tasks
-* Progress indicator
-* Real-time updates
-
-### Persistence
-
-* LocalStorage persistence
-* Automatic state restoration
-
-### UI
-
-* Dark Mode
-* Responsive Layout
-* Smooth animations
-* Clean component architecture
-
-### Technical
-
-* React Context API
-* React Hook Form
-* TypeScript
-* Next.js App Router
-* SEO Metadata
-* Sitemap
-* Robots
-* Web Manifest
-
----
-
-#  Screenshots
-
-## Dashboard
-
-<img width="900"  src="https://github.com/user-attachments/assets/a51db890-8f90-4398-979d-ebd6089dd5c4" />
-
----
-
-## Dark Mode
-
-<img width="900" src="https://github.com/user-attachments/assets/3d38651d-86f1-4ba2-9006-ec5540f1c394" />
 
 
----
 
-## Drag & Drop
+## Funcionalidades
 
-<img width="900" src="https://github.com/user-attachments/assets/46c5ddc1-6257-4031-8972-2054f11f9fa9" />
+### Gerenciamento de tarefas
 
----
+- Criar novas tarefas.
+- Excluir tarefas.
+- Múltiplas colunas Kanban.
+- Definição de prioridades.
+- Datas de vencimento.
+- Etiquetas.
+- Membros da equipe.
 
-## Create Task Dialog
+### Arrastar e soltar (Drag & Drop)
 
-> Add dialog screenshot
-<img width="900"  src="https://github.com/user-attachments/assets/d6ab6ccf-5dfe-4762-8757-513e17ba7bdb" />
+- Mover tarefas dentro da mesma coluna.
+- Mover tarefas entre colunas.
+- Animações suaves durante o arraste.
+- Acessibilidade por teclado.
+- Funcionalidade implementada com Dnd Kit.
 
----
+### Painel de controle (Dashboard)
 
-# 🛠 Tech Stack
+- Estatísticas dinâmicas das tarefas.
+- Tarefas concluídas.
+- Tarefas restantes.
+- Indicador de progresso.
+- Atualizações em tempo real.
+
+### Persistência de dados
+
+- Armazenamento de dados no LocalStorage.
+- Restauração automática do estado da aplicação.
+
+### Interface (UI)
+
+- Modo escuro.
+- Layout responsivo.
+- Animações suaves.
+- Arquitetura de componentes organizada.
+
+### Recursos técnicos
+
+- React Context API.
+- React Hook Form.
+- TypeScript.
+- App Router do Next.js.
+- Metadados para SEO.
+- Sitemap.
+- Arquivo Robots.
+- Web Manifest.
+
+
+
+## Capturas de tela
+
+### Painel de controle
+
+<img width="900" src="https://github.com/user-attachments/assets/a51db890-8f90-4398-979d-ebd6089dd5c4" alt="Painel de controle do Orbit Tasks" />
+
+
+
+### Modo escuro
+
+<img width="900" src="https://github.com/user-attachments/assets/3d38651d-86f1-4ba2-9006-ec5540f1c394" alt="Interface do Orbit Tasks no modo escuro" />
+
+
+### Arrastar e soltar
+
+<img width="900" src="https://github.com/user-attachments/assets/46c5ddc1-6257-4031-8972-2054f11f9fa9" alt="Movimentação de tarefas com arrastar e soltar" />
+
+
+### Janela de criação de tarefas
+
+<img width="900" src="https://github.com/user-attachments/assets/d6ab6ccf-5dfe-4762-8757-513e17ba7bdb" alt="Janela de criação de tarefas do Orbit Tasks" />
+
+
+## Tecnologias utilizadas
 
 ### Front-end
 
-* Next.js 16
-* React 19
-* TypeScript
-* Tailwind CSS 4
-* React Context API
-* React Hook Form
-* Dnd Kit (Drag & Drop)
-* Lucide React
-* next-themes
-* ESLint
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- React Context API
+- React Hook Form
+- Dnd Kit (arrastar e soltar)
+- Lucide React
+- next-themes
+- ESLint
 
----
 
-#  Getting started
 
-Clone the repository
+## Como executar o projeto
+
+Clone o repositório:
 
 ```bash
 git clone https://github.com/wwilliamsantana/orbit-tasks.git
 ```
 
-Navigate into the project
+Acesse a pasta do projeto:
 
 ```bash
 cd orbit-tasks
 ```
 
-Install dependencies
+Instale as dependências:
 
 ```bash
 npm install
 ```
 
-Run development server
+Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
 ```
 
-Open
+Acesse no navegador:
 
 ```text
 http://localhost:3000
 ```
 
----
 
-#  Production Build
+
+## Build de produção
+
+Gere a versão de produção e inicie o servidor:
 
 ```bash
 npm run build
 npm run start
 ```
 
----
 
-#  Dark Mode
+## Modo escuro
 
-Orbit Tasks supports both **Light** and **Dark** themes.
+Orbit Tasks oferece suporte aos temas **claro** e **escuro**.
 
-Features include:
+Os recursos incluem:
 
-* Theme persistence
-* Animated toggle
-* System independent theme
-* Smooth transitions
+- Persistência da preferência de tema.
+- Alternância de tema com animação.
+- Tema independente das configurações do sistema.
+- Transições suaves.
 
----
 
-#  SEO
 
-The project includes modern SEO features provided by Next.js:
+## SEO
 
-* Metadata API
-* Open Graph
-* Twitter Cards
-* Sitemap
-* Robots
-* Web Manifest
+O projeto inclui recursos modernos de SEO disponibilizados pelo Next.js:
 
----
+- API de metadados.
+- Open Graph.
+- Twitter Cards.
+- Sitemap.
+- Robots.
+- Web Manifest.
 
-#  Project Goals
+## Objetivos do projeto
 
-This project was built to practice modern Front-end development concepts:
+Este projeto foi desenvolvido para praticar conceitos modernos de desenvolvimento front-end
 
-* Component Architecture
-* Context API
-* Drag & Drop
-* React Hook Form
-* State Management
-* Next.js App Router
-* Metadata API
-* SEO
-* TypeScript
-* Responsive Design
-* Reusable Components
-* Clean Code
-* Accessibility
+- Arquitetura de componentes.
+- Context API.
+- Arrastar e soltar.
+- React Hook Form.
+- Gerenciamento de estado.
+- App Router do Next.js.
+- API de metadados.
+- SEO.
+- TypeScript.
+- Design responsivo.
+- Componentes reutilizáveis.
+- Código limpo.
+- Acessibilidade.
 
----
 
-#  Author
+## Autor
 
 **William Santana**
 
-GitHub
+**GitHub:** [github.com/wwilliamsantana](https://github.com/wwilliamsantana)
 
-https://github.com/wwilliamsantana
-
-LinkedIn
-
-https://linkedin.com/in/wwilliamsantana
+**LinkedIn:** [linkedin.com/in/wwilliamsantana](https://linkedin.com/in/wwilliamsantana)
 
 ---
 
-# License
+## Licença
 
-This project is licensed under the MIT License.
+Este projeto está licenciado sob a licença MIT.
